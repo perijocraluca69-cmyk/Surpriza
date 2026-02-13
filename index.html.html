@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surpriza 💌</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            text-align: center;
+            font-family: Arial;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #cc0000;
+            font-size: 40px;
+        }
+
+        button {
+            background-color: #ff4da6;
+            color: white;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="showSurprise()">Apasa pentru a vedea surpriza 💝</button>
+
+<h1 id="message"></h1>
+
+<script>
+function showSurprise() {
+    document.querySelector("button").style.display = "none";
+    document.getElementById("message").innerText = "Te pup si te imbratisez dulce! 😘";
+
+    setInterval(createHeart, 800);
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerText = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+</script>
+
+</body>
+</html>
